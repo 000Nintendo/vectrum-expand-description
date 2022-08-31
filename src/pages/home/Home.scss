@@ -1,0 +1,27 @@
+.home-screen {
+  text-align: start;
+
+  .content-container {
+    max-width: 1240px;
+    margin: auto;
+    padding: 50px 100px;
+
+    @media (max-width: 600px) {
+      padding: 40px 20px;
+    }
+  }
+
+  .questions-list {
+    height: fit-content;
+  }
+
+  .question-container {
+    margin-bottom: 100px;
+  }
+
+  @media (max-width: 600px) {
+    .question-container {
+      margin-bottom: 80px;
+    }
+  }
+}
