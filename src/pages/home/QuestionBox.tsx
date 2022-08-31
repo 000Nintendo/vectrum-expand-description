@@ -86,10 +86,9 @@ const QuestionBox = ({ questionData }: IQuestionBox) => {
         <br />
         <div className="title-devider" />
         <div className="answere-container text-secondary-dark">
-          <b className="">Solution</b>
+          {/* <b className="">Solution</b> */}
           <div
             className={`answere-text text-paragraph ${answereTextClass}`}
-            onClick={toggleReadMore}
           >
             {questionData.answere}
           </div>
