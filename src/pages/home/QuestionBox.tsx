@@ -85,22 +85,27 @@ const QuestionBox = ({ questionData }: IQuestionBox) => {
         <h2 className="title text-title">{questionData.question}</h2>
         <br />
         <div className="title-devider" />
-        <div className="answere-container text-secondary-dark">
+        <div
+          className="answere-container text-secondary-dark"
+          onClick={toggleReadMore}
+        >
           {/* <b className="">Solution</b> */}
-          <div
-            className={`answere-text text-paragraph ${answereTextClass}`}
-          >
+          <div className={`answere-text text-paragraph ${answereTextClass}`}>
             {questionData.answere}
           </div>
           <div className={`hidden-answere-text hidden-${answereTextClass}`}>
             {questionData.answere}
           </div>
-          <div className="read-more-container" onClick={toggleReadMore}>
+          <div className="read-more-container">
             <div
               className={`gradient-background ${gradientBackgroundClass}`}
             ></div>
             <p
               className={`read-more-button text-secondary-dark ${readMoreButtonClass}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleReadMore();
+              }}
             >
               Read more
             </p>
