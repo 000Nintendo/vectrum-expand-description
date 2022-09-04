@@ -6,15 +6,22 @@ import "./QuestionBox.scss";
 
 interface IQuestionBox {
   questionData: IQuestion;
+  isLastQuestion: boolean;
 }
 
-const QuestionBox = ({ questionData }: IQuestionBox) => {
+const QuestionBox = ({ questionData, isLastQuestion }: IQuestionBox) => {
   let answereTextContainerHeight: number | null = null;
   let answereParagraph: HTMLElement | null = null;
   let answereParagraphHeight: string | null = null;
   let userDetailsContainer: HTMLElement | null = null;
   let readMoreTextButton: HTMLElement | null = null;
   let gradientBackground: HTMLElement | null = null;
+
+  let lastQuestionContainer: HTMLElement | null = null;
+  let lastQuestionContainerHeight: number | null = null;
+  let lastQuestioinContainerBlurredLayer: HTMLElement | null = null;
+  let lastQuestionContainerViewMoreText: HTMLElement | null = null;
+  let viewLessQuestions: HTMLElement | null = null;
 
   const answereTextClass = `answere-text-${questionData.id}`;
   const userDetailsContainerClass = `user-details-container-${questionData.id}`;
@@ -47,6 +54,36 @@ const QuestionBox = ({ questionData }: IQuestionBox) => {
     gradientBackground = document.querySelector(
       `.${gradientBackgroundClass}`
     ) as HTMLElement | null;
+
+    if (isLastQuestion) {
+      lastQuestionContainer = document.querySelector(
+        `.question-container-clone-${questionData.id}`
+      ) as HTMLElement | null;
+
+      lastQuestioinContainerBlurredLayer = document.querySelector(
+        `.view-more-questions-container-${questionData.id}`
+      ) as HTMLElement | null;
+
+      lastQuestionContainerViewMoreText = document.querySelector(
+        `.read-more-question-text-${questionData.id}`
+      ) as HTMLElement | null;
+
+      viewLessQuestions = document.querySelector(
+        `.view-less-questions`
+      ) as HTMLElement | null;
+
+      lastQuestionContainerHeight = answereParagraph?.offsetHeight as number;
+
+      lastQuestionContainerViewMoreText?.addEventListener("click", () => {
+        lastQuestioinContainerBlurredLayer?.classList.add("display-none");
+        viewLessQuestions?.classList.remove("display-none");
+      });
+
+      viewLessQuestions?.addEventListener("click", () => {
+        lastQuestioinContainerBlurredLayer?.classList.remove("display-none");
+        viewLessQuestions?.classList.add("display-none");
+      });
+    }
   }, [questionData.id]);
 
   const toggleReadMore = () => {
@@ -56,7 +93,6 @@ const QuestionBox = ({ questionData }: IQuestionBox) => {
       ) as HTMLElement | null;
 
       const containerHeight = answereParagraphClone?.offsetHeight as number;
-
       answereParagraphHeight = answereParagraph?.style.height as string;
 
       if (answereParagraph)
@@ -85,22 +121,27 @@ const QuestionBox = ({ questionData }: IQuestionBox) => {
         <h2 className="title text-title">{questionData.question}</h2>
         <br />
         <div className="title-devider" />
-        <div className="answere-container text-secondary-dark">
+        <div
+          className="answere-container text-secondary-dark"
+          onClick={toggleReadMore}
+        >
           {/* <b className="">Solution</b> */}
-          <div
-            className={`answere-text text-paragraph ${answereTextClass}`}
-          >
+          <div className={`answere-text text-paragraph ${answereTextClass}`}>
             {questionData.answere}
           </div>
           <div className={`hidden-answere-text hidden-${answereTextClass}`}>
             {questionData.answere}
           </div>
-          <div className="read-more-container" onClick={toggleReadMore}>
+          <div className="read-more-container">
             <div
               className={`gradient-background ${gradientBackgroundClass}`}
             ></div>
             <p
               className={`read-more-button text-secondary-dark ${readMoreButtonClass}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleReadMore();
+              }}
             >
               Read more
             </p>

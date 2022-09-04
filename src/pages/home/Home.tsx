@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IQuestion } from "../../@types/IQuestion";
 import QuestionBox from "./QuestionBox";
 
@@ -30,7 +30,7 @@ const questions: IQuestion[] = [
   //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDXZ_HNjZQLyvDzl7VypBPztiyxF7DYqczeQdv6ksdVfcC0LpgSWRYST-u-zmD62XxPwA&usqp=CAU",
   // },
   {
-    id: 3,
+    id: 1,
     question: "What is web development?",
     answere:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, modi quae. Dolore pariatur expedita nam reprehenderit hic, labore unde voluptates saepe aspernatur inventore? Iste consequatur saepe obcaecati aspernatur nobis sequi ducimus explicabo, praesentium autem, maxime error. Adipisci, facilis necessitatibus sit sunt ut ex accusantium voluptas eos quasi, distinctio recusandae consequatur culpa tempore nam, hic molestiae excepturi earum error. Possimus voluptatum soluta, quaerat amet delectus alias consequuntur maxime esse impedit corporis quidem aperiam modi inventore illo aliquid accusantium, dolore dolorum quis pariatur enim nobis labore itaque temporibus! Consectetur dolores aspernatur iusto, ut odit harum ducimus perferendis impedit obcaecati. Doloremque, suscipit consectetur voluptatem voluptates labore iure modi accusamus nesciunt aperiam perferendis quidem! Fuga ducimus rerum modi accusamus expedita non, temporibus, laudantium cum dolorum asperiores vero, quod voluptatem placeat dolor id magni. Voluptates, fugiat laudantium velit molestiae nostrum veniam adipisci, aut minima labore amet, magnam commodi! Illum debitis veritatis optio doloremque obcaecati, cum dolore fugit ratione saepe praesentium ex expedita id, officia accusamus sed vel delectus nemo aut sequi earum ut odio. Sint, doloremque eligendi nesciunt tempore possimus repudiandae! Id vero temporibus iusto iste esse aspernatur eveniet sunt porro officia totam, expedita amet tenetur quis similique fuga quae non voluptates. Delectus vitae aliquam adipisci perspiciatis explicabo! Animi earum nihil incidunt veniam officiis quae tenetur quia in officia quasi modi reprehenderit unde doloremque, quos blanditiis rerum non error ex a. Ipsam numquam culpa sed quos voluptatibus hic, aspernatur, corporis est quo voluptate quis sit. Odit fugiat repellendus totam, maiores tempora asperiores quos dignissimos! Excepturi placeat quia provident deserunt, sapiente, qui possimus obcaecati nulla aspernatur exercitationem explicabo eveniet illum veniam adipisci quisquam delectus ea. Amet ut, sunt minima fugiat voluptates architecto error facilis rerum eligendi cum temporibus ullam necessitatibus, ab nulla commodi placeat quis facere odit libero eveniet odio iste est! Velit dignissimos sapiente, magni tempore eum esse maxime iure deleniti dolorem inventore? Distinctio odio architecto soluta error ipsa maxime ullam natus id officia adipisci eveniet in, quo laboriosam molestiae earum ipsum atque tempore aliquam accusamus excepturi quaerat impedit pariatur? Est ducimus reiciendis animi quod possimus magni suscipit, laudantium facilis eveniet non! Dolores, adipisci velit veritatis autem suscipit nulla quibusdam esse ipsam repellat corporis. Cumque, ullam! Odit, dolorem voluptatibus eum aut pariatur temporibus debitis ab ea dolorum itaque cumque blanditiis nesciunt quis beatae voluptates perferendis voluptatem omnis architecto repellat eius eos. Quos deleniti quia hic at amet cumque, illum quo, non et, eum impedit tempora.",
@@ -39,10 +39,10 @@ const questions: IQuestion[] = [
     expert_first_name: "Tony",
     expert_last_name: "Dinh",
     expert_profile_image:
-      "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWFsZSUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80",
+      "https://media.istockphoto.com/photos/headshot-portrait-of-smiling-male-employee-in-office-picture-id1309328823?k=20&m=1309328823&s=612x612&w=0&h=RqA2lYygvOxisNPp6UwFjz7bCw_rYITJMqFTMSrhpis=",
   },
   {
-    id: 4,
+    id: 2,
     question: "What is economics?",
     answere:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, modi quae. Dolore pariatur expedita nam reprehenderit hic, labore unde voluptates saepe aspernatur inventore? Iste consequatur saepe obcaecati aspernatur nobis sequi ducimus explicabo, praesentium autem, maxime error. Adipisci, facilis necessitatibus sit sunt ut ex accusantium voluptas eos quasi, distinctio recusandae consequatur culpa tempore nam, hic molestiae excepturi earum error. Possimus voluptatum soluta, quaerat amet delectus alias consequuntur maxime esse impedit corporis quidem aperiam modi inventore illo aliquid accusantium, dolore dolorum quis pariatur enim nobis labore itaque temporibus! Consectetur dolores aspernatur iusto, ut odit harum ducimus perferendis impedit obcaecati. Doloremque, suscipit consectetur voluptatem voluptates labore iure modi accusamus nesciunt aperiam perferendis quidem! Fuga ducimus rerum modi accusamus expedita non, temporibus, laudantium cum dolorum asperiores vero, quod voluptatem placeat dolor id magni. Voluptates, fugiat laudantium velit molestiae nostrum veniam adipisci, aut minima labore amet, magnam commodi! Illum debitis veritatis optio doloremque obcaecati, cum dolore fugit ratione saepe praesentium ex expedita id, officia accusamus sed vel delectus nemo aut sequi earum ut odio. Sint, doloremque eligendi nesciunt tempore possimus repudiandae! Id vero temporibus iusto iste esse aspernatur eveniet sunt porro officia totam, expedita amet tenetur quis similique fuga quae non voluptates. Delectus vitae aliquam adipisci perspiciatis explicabo! Animi earum nihil incidunt veniam officiis quae tenetur quia in officia quasi modi reprehenderit unde doloremque, quos blanditiis rerum non error ex a. Ipsam numquam culpa sed quos voluptatibus hic, aspernatur, corporis est quo voluptate quis sit. Odit fugiat repellendus totam, maiores tempora asperiores quos dignissimos! Excepturi placeat quia provident deserunt, sapiente, qui possimus obcaecati nulla aspernatur exercitationem explicabo eveniet illum veniam adipisci quisquam delectus ea. Amet ut, sunt minima fugiat voluptates architecto error facilis rerum eligendi cum temporibus ullam necessitatibus, ab nulla commodi placeat quis facere odit libero eveniet odio iste est! Velit dignissimos sapiente, magni tempore eum esse maxime iure deleniti dolorem inventore? Distinctio odio architecto soluta error ipsa maxime ullam natus id officia adipisci eveniet in, quo laboriosam molestiae earum ipsum atque tempore aliquam accusamus excepturi quaerat impedit pariatur? Est ducimus reiciendis animi quod possimus magni suscipit, laudantium facilis eveniet non! Dolores, adipisci velit veritatis autem suscipit nulla quibusdam esse ipsam repellat corporis. Cumque, ullam! Odit, dolorem voluptatibus eum aut pariatur temporibus debitis ab ea dolorum itaque cumque blanditiis nesciunt quis beatae voluptates perferendis voluptatem omnis architecto repellat eius eos. Quos deleniti quia hic at amet cumque, illum quo, non et, eum impedit tempora.",
@@ -53,7 +53,43 @@ const questions: IQuestion[] = [
     expert_profile_image:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d29tYW4lMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
   },
-
+  {
+    id: 3,
+    question:
+      "How can i focus on work when i'm in problem or mental depression?",
+    answere:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, modi quae. Dolore pariatur expedita nam reprehenderit hic, labore unde voluptates saepe aspernatur inventore? Iste consequatur saepe obcaecati aspernatur nobis sequi ducimus explicabo, praesentium autem, maxime error. Adipisci, facilis necessitatibus sit sunt ut ex accusantium voluptas eos quasi, distinctio recusandae consequatur culpa tempore nam, hic molestiae excepturi earum error. Possimus voluptatum soluta, quaerat amet delectus alias consequuntur maxime esse impedit corporis quidem aperiam modi inventore illo aliquid accusantium, dolore dolorum quis pariatur enim nobis labore itaque temporibus! Consectetur dolores aspernatur iusto, ut odit harum ducimus perferendis impedit obcaecati. Doloremque, suscipit consectetur voluptatem voluptates labore iure modi accusamus nesciunt aperiam perferendis quidem! Fuga ducimus rerum modi accusamus expedita non, temporibus, laudantium cum dolorum asperiores vero, quod voluptatem placeat dolor id magni. Voluptates, fugiat laudantium velit molestiae nostrum veniam adipisci, aut minima labore amet, magnam commodi! Illum debitis veritatis optio doloremque obcaecati, cum dolore fugit ratione saepe praesentium ex expedita id, officia accusamus sed vel delectus nemo aut sequi earum ut odio. Sint, doloremque eligendi nesciunt tempore possimus repudiandae! Id vero temporibus iusto iste esse aspernatur eveniet sunt porro officia totam, expedita amet tenetur quis similique fuga quae non voluptates. Delectus vitae aliquam adipisci perspiciatis explicabo! Animi earum nihil incidunt veniam officiis quae tenetur quia in officia quasi modi reprehenderit unde doloremque, quos blanditiis rerum non error ex a. Ipsam numquam culpa sed quos voluptatibus hic, aspernatur, corporis est quo voluptate quis sit. Odit fugiat repellendus totam, maiores tempora asperiores quos dignissimos! Excepturi placeat quia provident deserunt, sapiente, qui possimus obcaecati nulla aspernatur exercitationem explicabo eveniet illum veniam adipisci quisquam delectus ea. Amet ut, sunt minima fugiat voluptates architecto error facilis rerum eligendi cum temporibus ullam necessitatibus, ab nulla commodi placeat quis facere odit libero eveniet odio iste est! Velit dignissimos sapiente, magni tempore eum esse maxime iure deleniti dolorem inventore? Distinctio odio architecto soluta error ipsa maxime ullam natus id officia adipisci eveniet in, quo laboriosam molestiae earum ipsum atque tempore aliquam accusamus excepturi quaerat impedit pariatur? Est ducimus reiciendis animi quod possimus magni suscipit, laudantium facilis eveniet non! Dolores, adipisci velit veritatis autem suscipit nulla quibusdam esse ipsam repellat corporis. Cumque, ullam! Odit, dolorem voluptatibus eum aut pariatur temporibus debitis ab ea dolorum itaque cumque blanditiis nesciunt quis beatae voluptates perferendis voluptatem omnis architecto repellat eius eos. Quos deleniti quia hic at amet cumque, illum quo, non et, eum impedit tempora.",
+    expert_country: "Australia",
+    expert_designation: "Fashion Designer",
+    expert_first_name: "Jenny",
+    expert_last_name: "Clerk",
+    expert_profile_image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDXZ_HNjZQLyvDzl7VypBPztiyxF7DYqczeQdv6ksdVfcC0LpgSWRYST-u-zmD62XxPwA&usqp=CAU",
+  },
+  {
+    id: 4,
+    question: "How meditation works?",
+    answere:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, modi quae. Dolore pariatur expedita nam reprehenderit hic, labore unde voluptates saepe aspernatur inventore? Iste consequatur saepe obcaecati aspernatur nobis sequi ducimus explicabo, praesentium autem, maxime error. Adipisci, facilis necessitatibus sit sunt ut ex accusantium voluptas eos quasi, distinctio recusandae consequatur culpa tempore nam, hic molestiae excepturi earum error. Possimus voluptatum soluta, quaerat amet delectus alias consequuntur maxime esse impedit corporis quidem aperiam modi inventore illo aliquid accusantium, dolore dolorum quis pariatur enim nobis labore itaque temporibus! Consectetur dolores aspernatur iusto, ut odit harum ducimus perferendis impedit obcaecati. Doloremque, suscipit consectetur voluptatem voluptates labore iure modi accusamus nesciunt aperiam perferendis quidem! Fuga ducimus rerum modi accusamus expedita non, temporibus, laudantium cum dolorum asperiores vero, quod voluptatem placeat dolor id magni. Voluptates, fugiat laudantium velit molestiae nostrum veniam adipisci, aut minima labore amet, magnam commodi! Illum debitis veritatis optio doloremque obcaecati, cum dolore fugit ratione saepe praesentium ex expedita id, officia accusamus sed vel delectus nemo aut sequi earum ut odio. Sint, doloremque eligendi nesciunt tempore possimus repudiandae! Id vero temporibus iusto iste esse aspernatur eveniet sunt porro officia totam, expedita amet tenetur quis similique fuga quae non voluptates. Delectus vitae aliquam adipisci perspiciatis explicabo! Animi earum nihil incidunt veniam officiis quae tenetur quia in officia quasi modi reprehenderit unde doloremque, quos blanditiis rerum non error ex a. Ipsam numquam culpa sed quos voluptatibus hic, aspernatur, corporis est quo voluptate quis sit. Odit fugiat repellendus totam, maiores tempora asperiores quos dignissimos! Excepturi placeat quia provident deserunt, sapiente, qui possimus obcaecati nulla aspernatur exercitationem explicabo eveniet illum veniam adipisci quisquam delectus ea. Amet ut, sunt minima fugiat voluptates architecto error facilis rerum eligendi cum temporibus ullam necessitatibus, ab nulla commodi placeat quis facere odit libero eveniet odio iste est! Velit dignissimos sapiente, magni tempore eum esse maxime iure deleniti dolorem inventore? Distinctio odio architecto soluta error ipsa maxime ullam natus id officia adipisci eveniet in, quo laboriosam molestiae earum ipsum atque tempore aliquam accusamus excepturi quaerat impedit pariatur? Est ducimus reiciendis animi quod possimus magni suscipit, laudantium facilis eveniet non! Dolores, adipisci velit veritatis autem suscipit nulla quibusdam esse ipsam repellat corporis. Cumque, ullam! Odit, dolorem voluptatibus eum aut pariatur temporibus debitis ab ea dolorum itaque cumque blanditiis nesciunt quis beatae voluptates perferendis voluptatem omnis architecto repellat eius eos. Quos deleniti quia hic at amet cumque, illum quo, non et, eum impedit tempora.",
+    expert_country: "Australia",
+    expert_designation: "Fashion Designer",
+    expert_first_name: "Jenny",
+    expert_last_name: "Clerk",
+    expert_profile_image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDXZ_HNjZQLyvDzl7VypBPztiyxF7DYqczeQdv6ksdVfcC0LpgSWRYST-u-zmD62XxPwA&usqp=CAU",
+  },
+  {
+    id: 5,
+    question: "What are the best books to learn Javascript language in 2022?",
+    answere:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, modi quae. Dolore pariatur expedita nam reprehenderit hic, labore unde voluptates saepe aspernatur inventore? Iste consequatur saepe obcaecati aspernatur nobis sequi ducimus explicabo, praesentium autem, maxime error. Adipisci, facilis necessitatibus sit sunt ut ex accusantium voluptas eos quasi, distinctio recusandae consequatur culpa tempore nam, hic molestiae excepturi earum error. Possimus voluptatum soluta, quaerat amet delectus alias consequuntur maxime esse impedit corporis quidem aperiam modi inventore illo aliquid accusantium, dolore dolorum quis pariatur enim nobis labore itaque temporibus! Consectetur dolores aspernatur iusto, ut odit harum ducimus perferendis impedit obcaecati. Doloremque, suscipit consectetur voluptatem voluptates labore iure modi accusamus nesciunt aperiam perferendis quidem! Fuga ducimus rerum modi accusamus expedita non, temporibus, laudantium cum dolorum asperiores vero, quod voluptatem placeat dolor id magni. Voluptates, fugiat laudantium velit molestiae nostrum veniam adipisci, aut minima labore amet, magnam commodi! Illum debitis veritatis optio doloremque obcaecati, cum dolore fugit ratione saepe praesentium ex expedita id, officia accusamus sed vel delectus nemo aut sequi earum ut odio. Sint, doloremque eligendi nesciunt tempore possimus repudiandae! Id vero temporibus iusto iste esse aspernatur eveniet sunt porro officia totam, expedita amet tenetur quis similique fuga quae non voluptates. Delectus vitae aliquam adipisci perspiciatis explicabo! Animi earum nihil incidunt veniam officiis quae tenetur quia in officia quasi modi reprehenderit unde doloremque, quos blanditiis rerum non error ex a. Ipsam numquam culpa sed quos voluptatibus hic, aspernatur, corporis est quo voluptate quis sit. Odit fugiat repellendus totam, maiores tempora asperiores quos dignissimos! Excepturi placeat quia provident deserunt, sapiente, qui possimus obcaecati nulla aspernatur exercitationem explicabo eveniet illum veniam adipisci quisquam delectus ea. Amet ut, sunt minima fugiat voluptates architecto error facilis rerum eligendi cum temporibus ullam necessitatibus, ab nulla commodi placeat quis facere odit libero eveniet odio iste est! Velit dignissimos sapiente, magni tempore eum esse maxime iure deleniti dolorem inventore? Distinctio odio architecto soluta error ipsa maxime ullam natus id officia adipisci eveniet in, quo laboriosam molestiae earum ipsum atque tempore aliquam accusamus excepturi quaerat impedit pariatur? Est ducimus reiciendis animi quod possimus magni suscipit, laudantium facilis eveniet non! Dolores, adipisci velit veritatis autem suscipit nulla quibusdam esse ipsam repellat corporis. Cumque, ullam! Odit, dolorem voluptatibus eum aut pariatur temporibus debitis ab ea dolorum itaque cumque blanditiis nesciunt quis beatae voluptates perferendis voluptatem omnis architecto repellat eius eos. Quos deleniti quia hic at amet cumque, illum quo, non et, eum impedit tempora.",
+    expert_country: "Australia",
+    expert_designation: "Fashion Designer",
+    expert_first_name: "Jenny",
+    expert_last_name: "Clerk",
+    expert_profile_image:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d29tYW4lMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+  },
   // {
   //   id: 4,
   //   question: "Question with 600 words?",
@@ -92,16 +128,61 @@ const questions: IQuestion[] = [
   // },
 ];
 
+const isLastQuestion = (index: number) => {
+  if (index === questions.length - 1) {
+    // if (index === 0) {
+    return true;
+  }
+  return false;
+};
+
 const Home = () => {
   return (
     <div className="home-screen">
       <div className="content-container">
         <div className="questions-list">
-          {questions.map((question) => (
-            <div key={question.id} className="question-container">
-              <QuestionBox key={question.id} questionData={question} />
+          {questions.map((question, index) => (
+            <div className="question-outer-container">
+              <div
+                key={question.id}
+                className={`question-container question-container-${question.id}`}
+              >
+                <QuestionBox
+                  isLastQuestion={isLastQuestion(index)}
+                  key={question.id}
+                  questionData={question}
+                />
+              </div>
+              {isLastQuestion(index) ? (
+                <div
+                  key={`question-clone-${question.id}`}
+                  className={`question-container-clone question-container-clone-${question.id}`}
+                >
+                  <QuestionBox
+                    isLastQuestion={isLastQuestion(index)}
+                    key={question.id}
+                    questionData={question}
+                  />
+                </div>
+              ) : null}
+
+              {isLastQuestion(index) ? (
+                <div
+                  className={`view-more-questions-container view-more-questions-container-${question.id}`}
+                >
+                  <h3
+                    className={`read-more-question-text read-more-question-text-${question.id}`}
+                  >
+                    Read more questions
+                  </h3>
+                </div>
+              ) : null}
             </div>
           ))}
+        </div>
+
+        <div className="view-less-questions display-none view-less-questions">
+          <h3 className={`read-more-question-text`}>View less</h3>
         </div>
       </div>
     </div>

@@ -36,12 +36,13 @@
     transform: translateY(-60px);
 
     .gradient-background {
-      width: 100%;
+      width: 1px;
       height: 65px;
+      background: transparent;
       animation: user-details-slide-up 0.2s ease 0.15s forwards;
-      background: linear-gradient(0deg,
-          #ffffff 4.69%,
-          rgba(255, 255, 255, 0) 100%);
+      // background: linear-gradient(0deg,
+      //     #ffffff 4.69%,
+      //     rgba(255, 255, 255, 0) 100%);
     }
 
     .read-more-button {
